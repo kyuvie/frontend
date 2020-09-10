@@ -48,6 +48,7 @@ export default {
 
 <style>
 #head {
+  overflow: hidden;
   height: 100vh;
   min-height: 500px;
   background-image: url("../assets/background.jpg");
