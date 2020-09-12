@@ -47,7 +47,7 @@ export default {
           19,
           20,
         ],
-        datasets: [{ label: 'Random number', data: [] }],
+        datasets: [{ label: "Random number", data: [] }],
       },
       options: {
         responsive: true,
@@ -80,8 +80,8 @@ export default {
                 labelString: "Value",
               },
               ticks: {
-                  max: 10,
-                  min: 0,
+                max: 10,
+                min: 0,
               },
             },
           ],
@@ -98,7 +98,12 @@ export default {
       }
       this.chartAvailable = true;
       this.buttonText = "stop";
-      await sleep(1000);
+      for (let i = 0; i < 10; i++) {
+        if (!this.chartAvailable) {
+          return;
+        }
+        await sleep(100);
+      }
       while (this.chartAvailable) {
         this.chart.data.datasets.forEach((dataset) => {
           if (dataset.data.length >= 20) {
@@ -107,7 +112,12 @@ export default {
           dataset.data.push(this.getRandomInt(10));
         });
         this.chart.update();
-        await sleep(1000);
+        for (let i = 0; i < 10; i++) {
+          if (!this.chartAvailable) {
+            return;
+          }
+          await sleep(100);
+        }
       }
     },
     getRandomInt(max) {
