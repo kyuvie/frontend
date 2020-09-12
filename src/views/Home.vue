@@ -27,7 +27,7 @@ export default {
   },
   mounted() {
     new Typed("#home-title", {
-      strings: ['b1u3', 'kyuvie', 'Enuwai\'s ^500 Artwork'],
+      strings: ['b1u3', 'kyuvie', 'Enuwai\'s ^500 Playground'],
       typeSpeed: 100,
     });
   },
