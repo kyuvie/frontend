@@ -6,7 +6,7 @@
           <h1>えぬTwitterわい</h1>
         </b-col>
       </b-row>
-      <b-row v-if="isAuthenticated" class="justify-content-start" align-v="center">
+      <b-row v-if="user" class="justify-content-start" align-v="center">
         <b-col cols="auto">
           <b-avatar class="mt-1" size="3em" :src="user.thumbnail"></b-avatar>
         </b-col>
@@ -26,12 +26,12 @@
       </b-row>
       <b-row class="mt-3">
         <b-col>
-          <b-form-textarea :disabled="!isAuthenticated" v-model="textarea" placeholder="Tweet text" rows="5" max-rows="5"></b-form-textarea>
+          <b-form-textarea :disabled="!user" v-model="textarea" placeholder="Tweet text" rows="5" max-rows="5"></b-form-textarea>
         </b-col>
       </b-row>
       <b-row class="justify-content-end mt-3" align-v="center">
         <b-col cols="auto">
-          <b-button :disabled="!isAuthenticated" pill variant="primary" @click="TweetButtonClick">Tweet</b-button>
+          <b-button :disabled="!user" pill variant="primary" @click="TweetButtonClick">Tweet</b-button>
         </b-col>
       </b-row>
     </b-container>
@@ -42,9 +42,12 @@
 import { mapState } from 'vuex'
 export default {
   async mounted () {
-    const res = await this.axios.get('http://127.0.0.1:8000/api/detail/')
-    if (res.status != 200) return;
-    console.log(res.data)
+    try {
+      const res = await this.axios.get('http://127.0.0.1:8000/api/detail/')
+      this.$store.dispatch('loadUser', res.data)
+    } catch {
+      return;
+    }
   },
   data() {
     return {
