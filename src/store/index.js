@@ -42,18 +42,14 @@ export default new Vuex.Store({
     }
   },
   actions: {
-    authenticate({ commit }, provider) {
-      vueAuth.authenticate(provider).then(() => {
-        commit('isAuthenticated', {
-          isAuthenticated: vueAuth.isAuthenticated(),
-        })
-        if (this.state.isAuthenticated) {
-          axios.defaults.headers.common['Authorization'] = `Token ${localStorage.getItem('vue-authenticate.vueauth_token')}`
-          axios.get('http://127.0.0.1:8000/api/detail/').then((response) => {
-            commit('user', response.data)
-          })
-        }
-      })
+    async authenticate({ commit }, provider) {
+      await vueAuth.authenticate(provider)
+      commit('isAuthenticated', { isAuthenticated: vueAuth.isAuthenticated() })
+      if (this.state.isAuthenticated) {
+        // axios.defaults.headers.common['Authorization'] = `Token ${localStorage.getItem('vue-authenticate.vueauth_token')}`
+        const res = await axios.get('http://127.0.0.1:8000/api/detail/')
+        commit('user', res.data)
+      }
     }
   },
   modules: {
