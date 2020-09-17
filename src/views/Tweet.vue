@@ -1,9 +1,9 @@
 <template>
-  <div class="tweet">
+  <div class="n-twitter-y">
     <b-container>
       <b-row>
         <b-col>
-          <h1>えぬTweetわい</h1>
+          <h1>えぬTwitterわい</h1>
         </b-col>
       </b-row>
       <b-row v-if="isAuthenticated" class="justify-content-start" align-v="center">
@@ -41,6 +41,11 @@
 <script>
 import { mapState } from 'vuex'
 export default {
+  async mounted () {
+    const res = await this.axios.get('http://127.0.0.1:8000/api/detail/')
+    if (res.status != 200) return;
+    console.log(res.data)
+  },
   data() {
     return {
       textarea: ''
@@ -58,9 +63,27 @@ export default {
     },
     TweetButtonClick() {
       this.axios.post('http://127.0.0.1:8000/api/tweet/', { 'tweet': this.textarea }).then(
-        res => { if (res.data.status == 200) {alert('Tweet success');this.textarea = ""} else { alert('Tweet failed') } }
+        res => { if (res.data.status == 200) {alert(res.data.msg);this.textarea = ""} else { alert(res.data.msg) } }
       )
     },
   }
 }
 </script>
+
+<style scoped>
+.n-twitter-y {
+  overflow: hidden;
+  height: 100vh;
+  min-height: 500px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background: repeating-linear-gradient(
+    45deg,
+    #676f74,
+    #676f74 14.3%,
+    white 14.3%,
+    white 28.6%
+  );
+}
+</style>

@@ -11,9 +11,12 @@ const vueAuth = new VueAuthenticate(Vue.prototype.$http, {
   baseUrl: 'http://127.0.0.1:8000',
   tokenPath: 'token',
   tokenType: 'Token',
+  storageNamespace: 'n-twitter-y',
+  tokenPrefix: '',
   providers: {
     twitter: {
-      url: '/api/login/social/token_user/twitter'
+      url: '/api/login/social/knox_user/twitter',
+      redirectUri: 'http://127.0.0.1:8080/tweet',
     }
   }
 })

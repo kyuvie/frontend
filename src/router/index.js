@@ -20,13 +20,11 @@ Vue.use(VueRouter)
     component: () => import('../views/About.vue')
   },
     */
-  /*
   {
     path: '/tweet',
     name: 'Tweet',
     component: () => import('../views/Tweet.vue')
   },
-    */
   {
     path: '/random',
     name: 'Random',
