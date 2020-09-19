@@ -1,0 +1,70 @@
+<template>
+  <div class="n-twitter-y">
+    <b-container>
+      <b-row class="justify-content-center">
+        <Menu />
+      </b-row>
+      <b-row class="justify-content-center">
+        <TwitterAppMenu />
+      </b-row>
+      <b-row>
+        <router-view />
+      </b-row>
+    </b-container>
+  </div>
+</template>
+
+<script>
+import Menu from "./Menu.vue";
+import TwitterAppMenu from "./TwitterAppMenu.vue";
+import { mapState } from "vuex";
+export default {
+  components: {
+    Menu,
+    TwitterAppMenu,
+  },
+  async mounted() {
+    try {
+      const res = await this.axios.get("http://127.0.0.1:8000/api/detail/");
+      this.$store.dispatch("loadUser", res.data);
+      console.log(res.data);
+    } catch {
+      localStorage.removeItem("n-twitter-y.token");
+      return;
+    }
+  },
+  props: ["title"],
+  data() {
+    return {
+      textarea: "",
+      textIsEditable: true,
+    };
+  },
+  computed: {
+    ...mapState(["isAuthenticated", "user"]),
+  },
+  methods: {
+    LoginWithTwitter() {
+      this.$store.dispatch("authenticate", "twitter");
+    },
+  },
+};
+</script>
+
+<style scoped>
+.n-twitter-y {
+  overflow: hidden;
+  height: 100vh;
+  min-height: 500px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background: repeating-linear-gradient(
+    45deg,
+    #676f74,
+    #676f74 14.3%,
+    white 14.3%,
+    white 28.6%
+  );
+}
+</style>
