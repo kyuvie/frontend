@@ -9,7 +9,7 @@ export default {
   methods: {
     async HelloButtonClicked() {
       const res = await this.axios.get(
-        "https://b1u3-website.herokuapp.com/api/hello_world/"
+        "/api/hello_world/"
       );
       this.hello_world = res.data;
     },
