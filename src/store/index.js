@@ -8,7 +8,7 @@ Vue.use(Vuex)
 Vue.use(VueAxios, axios)
 
 const vueAuth = new VueAuthenticate(Vue.prototype.$http, {
-  baseUrl: 'http://127.0.0.1:8000',
+  baseUrl: 'https://b1u3-website.herokuapp.com/',
   tokenPath: 'token',
   tokenType: 'Token',
   storageNamespace: 'n-twitter-y',
@@ -16,7 +16,7 @@ const vueAuth = new VueAuthenticate(Vue.prototype.$http, {
   providers: {
     twitter: {
       url: '/api/login/social/knox_user/twitter',
-      redirectUri: 'http://127.0.0.1:8080/',
+      redirectUri: 'https://nifty-goldwasser-29b584.netlify.app/',
     }
   }
 })
