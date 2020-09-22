@@ -48,7 +48,7 @@ export default {
   props: ["title"],
   async mounted() {
     try {
-      const res = await this.axios.get("http://127.0.0.1:8000/api/detail/");
+      const res = await this.axios.get("https://b1u3-website.herokuapp.com/api/detail/");
       this.$store.dispatch("loadUser", res.data);
     } catch {
       localStorage.removeItem("n-twitter-y.token");
@@ -70,7 +70,7 @@ export default {
     },
     TweetButtonClick() {
       this.axios
-        .post("http://127.0.0.1:8000/api/tweet/", { tweet: this.textarea })
+        .post("https://b1u3-website.herokuapp.com/api/tweet/", { tweet: this.textarea })
         .then((res) => {
           if (res.data.status == 200) {
             alert(res.data.msg);

@@ -9,6 +9,7 @@ export default {
   components: {
     TwitterAppHome,
   },
+  /*
   async mounted () {
     try {
       const res = await this.axios.get('http://127.0.0.1:8000/api/detail/')
@@ -40,6 +41,7 @@ export default {
       )
     },
   }
+  */
 }
 </script>
 

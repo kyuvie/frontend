@@ -8,7 +8,7 @@ Vue.use(Vuex)
 Vue.use(VueAxios, axios)
 
 const vueAuth = new VueAuthenticate(Vue.prototype.$http, {
-  baseUrl: 'https://b1u3-website.herokuapp.com/',
+  baseUrl: 'https://b1u3-website.herokuapp.com',
   tokenPath: 'token',
   tokenType: 'Token',
   storageNamespace: 'n-twitter-y',
@@ -46,7 +46,7 @@ export default new Vuex.Store({
       await vueAuth.authenticate(provider)
       commit('isAuthenticated', { isAuthenticated: vueAuth.isAuthenticated() })
       if (this.state.isAuthenticated) {
-        const res = await axios.get('http://127.0.0.1:8000/api/detail/')
+        const res = await axios.get('https://b1u3-website.herokuapp.com/api/detail/')
         this.dispatch('loadUser', res.data)
       }
     },

@@ -25,7 +25,7 @@ export default {
   },
   async mounted() {
     try {
-      const res = await this.axios.get("http://127.0.0.1:8000/api/detail/");
+      const res = await this.axios.get("https://b1u3-website.herokuapp.com/api/detail/");
       this.$store.dispatch("loadUser", res.data);
       console.log(res.data);
     } catch {
