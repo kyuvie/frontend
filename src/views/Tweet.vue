@@ -4,42 +4,10 @@
 
 <script>
 import TwitterAppHome from '../components/TwitterAppHome.vue'
-import { mapState } from 'vuex'
 export default {
   components: {
     TwitterAppHome,
   },
-  async mounted () {
-    try {
-      const res = await this.axios.get('http://127.0.0.1:8000/api/detail/')
-      this.$store.dispatch('loadUser', res.data)
-      console.log(res.data)
-    } catch {
-    localStorage.removeItem('n-twitter-y.token')
-      return;
-    }
-  },
-  data() {
-    return {
-      textarea: ''
-    }
-  },
-  computed: {
-    ...mapState([
-      'isAuthenticated',
-      'user',
-    ])
-  },
-  methods: {
-    LoginWithTwitter() {
-      this.$store.dispatch('authenticate', 'twitter')
-    },
-    TweetButtonClick() {
-      this.axios.post('http://127.0.0.1:8000/api/tweet/', { 'tweet': this.textarea }).then(
-        res => { if (res.data.status == 200) {alert(res.data.msg);this.textarea = ""} else { alert(res.data.msg) } }
-      )
-    },
-  }
 }
 </script>
 

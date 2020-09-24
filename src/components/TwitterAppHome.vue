@@ -23,16 +23,6 @@ export default {
     Menu,
     TwitterAppMenu,
   },
-  async mounted() {
-    try {
-      const res = await this.axios.get("http://127.0.0.1:8000/api/detail/");
-      this.$store.dispatch("loadUser", res.data);
-      console.log(res.data);
-    } catch {
-      localStorage.removeItem("n-twitter-y.token");
-      return;
-    }
-  },
   props: ["title"],
   data() {
     return {

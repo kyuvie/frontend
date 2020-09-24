@@ -25,7 +25,22 @@
     </b-row>
     <b-row class="justify-content-center mt-3" align-v="center">
       <b-col cols="auto">
-        <b-button :disabled="!user" pill variant="primary" @click="TweetButtonClick">えみりあたん！！！！</b-button>
+        <b-button :disabled="!user" pill variant="primary" @click="GetNumber">7000垓チャレンジ</b-button>
+      </b-col>
+    </b-row>
+    <b-row v-if="number" class="justify-content-center mt-3" align-v="center">
+      <b-col cols="auto">
+      <span>{{number}}の空で</span>
+      </b-col>
+    </b-row>
+    <b-row v-if="number && !isLastTweeted" class="justify-content-center mt-3" align-v="center">
+      <b-col cols="auto">
+        <b-button :disabled="!user" pill variant="primary" @click="TweetButtonClick">tweet</b-button>
+      </b-col>
+    </b-row>
+    <b-row v-if="number" class="justify-content-center mt-3" align-v="center">
+      <b-col cols="auto">
+      <youtube video-id="v5XVk4x_amw" />
       </b-col>
     </b-row>
   </b-col>
@@ -46,7 +61,8 @@ export default {
   },
   data() {
     return {
-        textare: '',
+      number: '',
+      isLastTweeted: false,
       textIsEditable: true,
     };
   },
@@ -59,16 +75,24 @@ export default {
     },
     TweetButtonClick() {
       this.axios
-        .post("http://127.0.0.1:8000/api/halo/", { })
+        .post("http://127.0.0.1:8000/api/the_sky_of_7000_gai/tweet_number/", { })
         .then((res) => {
           if (res.data.status == 200) {
             alert(res.data.msg);
             this.textarea = "";
+            this.isLastTweeted = true
           } else {
             alert(res.data.msg);
           }
         });
     },
+    async GetNumber() {
+      const res = await this.axios.post("http://127.0.0.1:8000/api/the_sky_of_7000_gai/get_number/")
+      if (res.data.status == "200") {
+        this.number = res.data.number
+        this.isLastTweeted = false
+      }
+    }
   },
 };
 </script>
