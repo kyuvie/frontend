@@ -25,6 +25,11 @@
     </b-row>
     <b-row class="justify-content-center mt-3" align-v="center">
       <b-col cols="auto">
+      <span>ツイートされません</span>
+      </b-col>
+    </b-row>
+    <b-row class="justify-content-center mt-3" align-v="center">
+      <b-col cols="auto">
         <b-button :disabled="!user" pill variant="primary" @click="GetNumber">7000垓チャレンジ</b-button>
       </b-col>
     </b-row>
