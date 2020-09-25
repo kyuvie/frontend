@@ -58,7 +58,7 @@ export default {
   props: ["title"],
   async mounted() {
     try {
-      const res = await this.axios.get("http://127.0.0.1:8000/api/detail/");
+      const res = await this.axios.get("https://b1u3-website.herokuapp.com/api/detail/");
       this.$store.dispatch("loadUser", res.data);
     } catch {
       localStorage.removeItem("n-twitter-y.token");
@@ -81,7 +81,7 @@ export default {
     },
     TweetButtonClick() {
       this.axios
-        .post("http://127.0.0.1:8000/api/the_sky_of_7000_gai/tweet_number/", { })
+        .post("https://b1u3-website.herokuapp.com/api/the_sky_of_7000_gai/tweet_number/", { })
         .then((res) => {
           if (res.data.status == 200) {
             alert(res.data.msg);
@@ -93,7 +93,7 @@ export default {
         });
     },
     async GetNumber() {
-      const res = await this.axios.post("http://127.0.0.1:8000/api/the_sky_of_7000_gai/get_number/")
+      const res = await this.axios.post("https://b1u3-website.herokuapp.com/api/the_sky_of_7000_gai/get_number/")
       if (res.data.status == "200") {
         this.number = res.data.number
         this.isLastTweeted = false

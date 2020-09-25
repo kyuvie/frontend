@@ -29,19 +29,6 @@ export default {
     Menu,
     TwitterAppMenu,
   },
-<<<<<<< HEAD
-  async mounted() {
-    try {
-      const res = await this.axios.get("https://b1u3-website.herokuapp.com/api/detail/");
-      this.$store.dispatch("loadUser", res.data);
-      console.log(res.data);
-    } catch {
-      localStorage.removeItem("n-twitter-y.token");
-      return;
-    }
-  },
-=======
->>>>>>> develop
   props: ["title"],
   data() {
     return {

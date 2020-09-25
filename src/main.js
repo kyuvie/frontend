@@ -19,7 +19,7 @@ Vue.use(VueYoutube)
 import VueScrollTo from 'vue-scrollto'
 Vue.use(VueScrollTo)
 
-Vue.config.productionTip = true
+Vue.config.productionTip = false
 
 new Vue({
   router,

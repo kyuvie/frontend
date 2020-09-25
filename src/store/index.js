@@ -53,7 +53,6 @@ export default new Vuex.Store({
     loadUser({ commit }, userInfo) {
       commit('user', userInfo)
     }
-
   },
   modules: {
   }
