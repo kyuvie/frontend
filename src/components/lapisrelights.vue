@@ -45,9 +45,7 @@
       </b-col>
     </b-row>
     <b-row v-if="number" class="justify-content-center mt-3" align-v="center">
-      <b-col cols="auto">
       <youtube video-id="v5XVk4x_amw" />
-      </b-col>
     </b-row>
   </b-col>
 </template>
