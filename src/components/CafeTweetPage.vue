@@ -23,9 +23,12 @@
         <b-button @click="LoginWithTwitter" variant="primary" pill>Twitterでログイン</b-button>
       </b-col>
     </b-row>
+    <b-row class="justify-content-center">
+    <span><a href="https://note.com/cafecafe_/n/n40a83692c0ac">みゃもの日記</a></span>
+    </b-row>
     <b-row class="justify-content-center" align-v="center">
       <b-col cols="auto">
-        <b-button :disabled="!user" pill variant="primary" @click="TweetButtonClick">みゃも！！</b-button>
+        <b-button :disabled="!user" pill variant="primary" @click="TweetButtonClick">みゃも(一人称)になる</b-button>
       </b-col>
     </b-row>
   </b-col>
