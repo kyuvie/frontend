@@ -49,7 +49,6 @@ export default {
 
 <style scoped>
 .n-twitter-y {
-  overflow: hidden;
   height: 100vh;
   min-height: 500px;
   background-size: cover;

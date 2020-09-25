@@ -23,9 +23,6 @@
         <b-button @click="LoginWithTwitter" variant="primary" pill>Twitterでログイン</b-button>
       </b-col>
     </b-row>
-    <b-row v-if="number" class="justify-content-center mt-3" align-v="center">
-      <youtube video-id="v5XVk4x_amw" />
-    </b-row>
     <b-row class="justify-content-center mt-3" align-v="center">
       <b-col cols="auto">
       <span>↓まだツイートされません。</span>
@@ -46,6 +43,9 @@
         <!--<b-button :disabled="!user" pill variant="primary" @click="TweetButtonClick">tweet</b-button>-->
         <b-button @click="ShowConfirmDialog">tweet</b-button>
       </b-col>
+    </b-row>
+    <b-row v-if="number" class="justify-content-center mt-3" align-v="center">
+      <youtube video-id="v5XVk4x_amw" />
     </b-row>
   </b-col>
 </template>
