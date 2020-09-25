@@ -5,6 +5,12 @@
         <Menu />
       </b-row>
       <b-row class="justify-content-center">
+        <span>選ばれし者だけがログイン・ツイートできます</span>
+      </b-row>
+      <b-row class="justify-content-center">
+        <span>(えぬわいさんの独断と偏見)</span>
+      </b-row>
+      <b-row class="justify-content-center">
         <TwitterAppMenu />
       </b-row>
       <b-row>

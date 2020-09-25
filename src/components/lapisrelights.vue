@@ -25,7 +25,7 @@
     </b-row>
     <b-row class="justify-content-center mt-3" align-v="center">
       <b-col cols="auto">
-      <span>ツイートされません</span>
+      <span>↓まだツイートされません。</span>
       </b-col>
     </b-row>
     <b-row class="justify-content-center mt-3" align-v="center">
@@ -40,7 +40,8 @@
     </b-row>
     <b-row v-if="number && !isLastTweeted" class="justify-content-center mt-3" align-v="center">
       <b-col cols="auto">
-        <b-button :disabled="!user" pill variant="primary" @click="TweetButtonClick">tweet</b-button>
+        <!--<b-button :disabled="!user" pill variant="primary" @click="TweetButtonClick">tweet</b-button>-->
+        <b-button @click="ShowConfirmDialog">tweet</b-button>
       </b-col>
     </b-row>
     <b-row v-if="number" class="justify-content-center mt-3" align-v="center">
@@ -97,6 +98,20 @@ export default {
         this.number = res.data.number
         this.isLastTweeted = false
       }
+    },
+    async ShowConfirmDialog() {
+      let msg = 'ツイートしていい？'
+      let loop = true
+      while (loop) {
+        const value = await this.$bvModal.msgBoxConfirm(msg)
+        if (value) {
+          this.TweetButtonClick()
+          loop = false;
+        } else {
+          msg = 'して'
+        }
+      }
+
     }
   },
 };
