@@ -5,6 +5,12 @@
         <Menu />
       </b-row>
       <b-row class="justify-content-center">
+        <span>選ばれし者だけがログイン・ツイートできます</span>
+      </b-row>
+      <b-row class="justify-content-center">
+        <span>(えぬわいさんの独断と偏見)</span>
+      </b-row>
+      <b-row class="justify-content-center">
         <TwitterAppMenu />
       </b-row>
       <b-row>
@@ -23,6 +29,7 @@ export default {
     Menu,
     TwitterAppMenu,
   },
+<<<<<<< HEAD
   async mounted() {
     try {
       const res = await this.axios.get("https://b1u3-website.herokuapp.com/api/detail/");
@@ -33,6 +40,8 @@ export default {
       return;
     }
   },
+=======
+>>>>>>> develop
   props: ["title"],
   data() {
     return {

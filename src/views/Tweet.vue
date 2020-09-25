@@ -4,11 +4,15 @@
 
 <script>
 import TwitterAppHome from '../components/TwitterAppHome.vue'
+<<<<<<< HEAD
 // import { mapState } from 'vuex'
+=======
+>>>>>>> develop
 export default {
   components: {
     TwitterAppHome,
   },
+<<<<<<< HEAD
   /*
   async mounted () {
     try {
@@ -42,6 +46,8 @@ export default {
     },
   }
   */
+=======
+>>>>>>> develop
 }
 </script>
 

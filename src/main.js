@@ -11,6 +11,10 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 Vue.use(BootstrapVue)
 Vue.use(IconsPlugin)
 
+
+import VueYoutube from 'vue-youtube'
+Vue.use(VueYoutube)
+
 // vue-scrollto
 import VueScrollTo from 'vue-scrollto'
 Vue.use(VueScrollTo)

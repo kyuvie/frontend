@@ -46,6 +46,13 @@ const routes = [
           title: 'えぬへいろうさんわい',
         },
       },
+      {
+        path: '7000gai',
+        component: () => import('../components/lapisrelights.vue'),
+        props: {
+          title: '700,000,000,000,000,000,000,000の空で',
+        },
+      },
     ]
 
   },
